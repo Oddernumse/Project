@@ -5,6 +5,7 @@ var upgradeCost = 10;
 var upgradeCost2 = 100;
 var upgradeCost3 = 150;
 var clickTime = 1000;
+var autoClickers = 0;
 
 
 
@@ -17,6 +18,7 @@ function autoClickFunc() {
         tid = window.setInterval(function() {
         clickFunction()
         }, this.clickTime);
+        autoClickers++;
     }
 }
 
@@ -51,6 +53,7 @@ function increaseClickMoney() {
 function updater() {
     document.getElementById("output").innerHTML = "You have $" + money;
     document.getElementById("test").innerHTML = "Upgrade Cost: " + upgradeCost2 + " " + upgradeCost + " " + clickTime;
+    document.getElementById("autoClick").innerHTML = "Autoclickers: " + autoClickers;
 }
 
 setInterval(updater, 50);
