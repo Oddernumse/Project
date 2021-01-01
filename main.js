@@ -5,6 +5,7 @@ var upgradeCost = 10;
 var upgradeCost2 = 100;
 var upgradeCost3 = 150;
 var clickTime = 1000;
+var autoClickers = 0;
 
 
 
@@ -17,6 +18,7 @@ function autoClickFunc() {
         tid = window.setInterval(function() {
         clickFunction()
         }, this.clickTime);
+        autoClickers++;
     }
 }
 
