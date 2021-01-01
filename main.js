@@ -52,7 +52,7 @@ function increaseClickMoney() {
 //This updates some values every 50 milliseconds
 function updater() {
     document.getElementById("output").innerHTML = "You have $" + money;
-    document.getElementById("test").innerHTML = "Upgrade Cost: " + upgradeCost2 + " " + upgradeCost + " " + clickTime;
+    document.getElementById("test").innerHTML = "Upgrade Cost: " + upgradeCost2 + " " + upgradeCost + " " + clickTime + " AutoClickers: " + autoClickers;
 }
 
 setInterval(updater, 50);
