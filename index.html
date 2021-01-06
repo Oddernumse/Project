@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker</title>
+    <title>Monkey Business</title>
 </head>
-<body>
-    <button type="button" onclick="clickFunction()" onclick="updater()">Click Me!</button>
-    <button type="button" onclick="increaseClickMoney()">Get more per click</button>
-    <button type="button" onclick="autoClickFunc()">Buy AutoClicker</button>
+<body onload="updater()">
+    <button type="button" onclick="clickFunction()">Type Lines</button>
+    <button type="button" onclick="increaseClickMoney()">Type More Lines Per Press</button>
+    <button type="button" onclick="autoClickFunc1()">Buy Monkey</button>
     <div id="test">Upgrade Cost: </div>
-    <div id="output">You have $0</div>
-    <div id="autoClick">Autoclickers: 0</div>
+    <div id="output">You've Typed 0 Lines</div>
+    <div id="autoClick">LpS: 0</div>
+    <button type="button" onclick="wipeSave()">Wipe Save</button>
     <script src="main.js"></script>
 </body>
 </html>
