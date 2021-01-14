@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monkey Business</title>
 </head>
-<body onload="updater()">
-    <button type="button" onclick="clickFunction()">Type Lines</button>
-    <button type="button" onclick="increaseClickMoney()">Type More Lines Per Press</button>
-    <button type="button" onclick="autoClickFunc1()">Buy Monkey</button>
-    <div id="test">Upgrade Cost: </div>
-    <div id="output">You've Typed 0 Lines</div>
-    <div id="autoClick">LpS: 0</div>
+<body onload="updater()" id="moneky">
+    <div class="center">
+       <button type="submit" class="button1" onclick="clickFunction()"></button>
+    </div>
+    <br/>
+    <button class="button" onclick="increaseClickMoney()">Type More Lines Per Press</button>
+    <br/>
+    <br/>
+    <button class="button" onclick="autoClickFunc1()">Buy Monkey</button>
+    <div id="test" class="font-color font-style">Upgrade Cost: </div>
+    <div id="output" class="font-color font-style">You've Typed 0 Lines</div>
+    <div id="autoClick" class="font-color font-style">LpS: 0</div>
     <button type="button" onclick="wipeSave()">Wipe Save</button>
     <script src="main.js"></script>
 </body>
