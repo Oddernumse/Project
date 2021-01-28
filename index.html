@@ -14,10 +14,21 @@
     <button class="button" onclick="increaseClickMoney()">Type More Lines Per Press</button>
     <br/>
     <br/>
-    <button class="button" onclick="autoClickFunc1()">Buy Monkey</button>
-    <div id="test" class="font-color font-style">Upgrade Cost: </div>
-    <div id="output" class="font-color font-style">You've Typed 0 Lines</div>
-    <div id="autoClick" class="font-color font-style">LpS: 0</div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <button class="button" onclick="monkeyWriterFunc()" href="#">Buy Monkey</button>
+        <br/>
+        <a href="#">placeholder2</a>
+        <br/>
+        <a href="#">placeholder3</a>
+    </div>
+    <!-- <button class="button" onclick="monkeyWriterFunc()">Buy Monkey</button> -->
+    <div id="test" class="font-color font-style center">Upgrade Cost: </div>
+    <div id="output" class="font-color font-style center">You've Typed 0 Lines</div>
+    <div id="autoClick" class="font-color font-style center">LpS: 0</div>
+    <button class="button" style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; menu</button>
+    <br/>
     <button type="button" onclick="wipeSave()">Wipe Save</button>
     <script src="main.js"></script>
 </body>
