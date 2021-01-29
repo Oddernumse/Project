@@ -40,9 +40,13 @@ function animate() {
 
         // draw stuff here
         for (i=0; i < multiplier; i++) {
+            var fixedNum = gameData.trainees.toFixed(2);
             var fixedMoney = gameData.money.toFixed(2);
             gameData.money += gameData.mps / multiplier / 60;
-            document.getElementById("output").innerHTML = "You've typed " + fixedMoney + " Lines";
+            gameData.trainees += gameData.traineeIncrease / multiplier / 60;
+            document.getElementById("output3").innerHTML = fixedNum + " trainees";
+            document.getElementById("output4").innerHTML = fixedMoney + " Lines";
+            //monkeyEmployerFunc();
         }
 
         // TESTING...Report #seconds since start and achieved fps.
@@ -62,15 +66,36 @@ THE CODE ABOVE ONLY EXISTS TO LIMIT THE FPS AT WHICH THE THINGS DRAWN IN THE SPE
 
 
 var gameData = {
+
     money: 0,
+
     moneyPerClick: 1,
+
     upgradeCost: 10,
+
     upgradeCost2: 100,
-    monkeyWriterCost: 15,
-    clickTime: 1000,
+
+    monkeyTraineeCost: 2,
+
+    monkeyEmployerCost: 100,
+
     mps: 0,
+
     monkeyWriter: 0,
-    monkeyWriterValue: 0.1
+
+    monkeyTraineeValue: 0.1,
+
+    monkeyEmployer: 0,
+
+    trainees: 30,
+
+    monkeyWriterCost: 20,
+
+    monkeyWriterValue: 0.1,
+
+    monkeyTrainerCost: 10,
+
+    traineeIncrease: 0
 }
 
 /*var test ={
@@ -93,15 +118,18 @@ function prettify(input) {
 
 //This function increases money by whatever moneyPerClick is, everytime you press the button
 function clickFunction() {
-    gameData.money += gameData.moneyPerClick,
-    document.getElementById("output").innerHTML = "You've typed " + prettify(gameData.money) + " Lines";
+    gameData.money += gameData.moneyPerClick;
+    //document.getElementById("output3").innerHTML = gameData.money;
 }
 
 //This updates some values every 50 milliseconds
 function updater() {
     var fixedNum = gameData.monkeyWriterCost.toFixed(2);
-    document.getElementById("test").innerHTML = "Upgrade Cost: " + gameData.upgradeCost + " " + fixedNum;
-    document.getElementById("autoClick").innerHTML = "LpS: " + prettify(gameData.mps); 
+    var fixedNum2 = gameData.monkeyTrainerCost.toFixed(2);
+    document.getElementById("output2").innerHTML = "Monkey Writer: " + fixedNum + " Trainees";
+    document.getElementById("output5").innerHTML = "Monkey Trainer: " + fixedNum2 + " Trainees";
+    document.getElementById("autoClick").innerHTML = "LpS: " + prettify(gameData.mps);
+    //document.getElementById("output3").innerHTML = gameData.trainees + " Trainees" + " Trainee Increase: " + gameData.traineeIncrease;
 }
 setInterval(updater, 50);
 
@@ -117,18 +145,40 @@ function increaseClickMoney() {
 }
 
 //This increases the value my for loop (the loop runs once every second) uses by a value which i want to be incremented by upgrades implemented later. Right now it just happens to be 0.1
+function monkeyTraineeFunc() {
+    if (gameData.money >= gameData.monkeyTraineeCost) {
+        gameData.money -= gameData.monkeyTraineeCost;
+        gameData.monkeyTraineeCost = gameData.monkeyTraineeCost * 1.15;
+        gameData.trainees += gameData.monkeyTraineeValue;
+    }
+}
+
 function monkeyWriterFunc() {
-    if (gameData.money >= gameData.monkeyWriterCost) {
-        gameData.money -= gameData.monkeyWriterCost;
+    if (gameData.trainees >= gameData.monkeyWriterCost) {
+        gameData.trainees -= gameData.monkeyWriterCost;
         gameData.monkeyWriterCost = gameData.monkeyWriterCost * 1.15;
         gameData.monkeyWriter += gameData.monkeyWriterValue;
-        gameData.mps += gameData.monkeyWriterValue//gameData.monkeyWriter;
-        //var upgrader = new Upgrade1(10, 10);
+        gameData.mps += gameData.monkeyWriter;
+    }
+}
+
+function monkeyTrainerFunc() {
+    if (gameData.trainees >= gameData.monkeyTrainerCost) {
+        gameData.trainees -= gameData.monkeyTrainerCost;
+        gameData.monkeyTrainerCost *= 1.15;
+        gameData.traineeIncrease += 0.07;
     }
 }
 
 function monkeyEmployerFunc() {
-    //this is just a reminder to make this thing work at some point
+    gameData.mps += gameData.monkeyEmployer * gameData.monkeyWriterValue / 10000;
+}
+
+function monkeyEmployerFunc2() {
+    if (gameData.money >= gameData.monkeyEmployerCost) {
+        gameData.money -= gameData.monkeyEmployerCost;
+        gameData.monkeyEmployer += 1;
+    }
 }
 
 let multiplier = 10;
