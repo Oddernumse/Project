@@ -1,3 +1,6 @@
+//started working on this december 21st 2020
+//today: february 5nd 2021
+
 var stop = false;
 var frameCount = 0;
 //var $results = $("#results");
@@ -12,7 +15,6 @@ function startAnimating(fps) {
     console.log(startTime);
     animate();
 }
-
 
 function animate() {
 
@@ -39,15 +41,7 @@ function animate() {
         then = now - (elapsed % fpsInterval);
 
         // draw stuff here
-        for (i=0; i < multiplier; i++) {
-            var fixedNum = gameData.trainees.toFixed(2);
-            var fixedLines = gameData.lines.toFixed(2);
-            gameData.lines += gameData.mps / multiplier / 30;
-            gameData.trainees += gameData.traineeIncrease / multiplier / 30;
-            document.getElementById("output3").innerHTML = fixedNum + " trainees";
-            document.getElementById("output4").innerHTML = fixedLines + " Lines";
-            //monkeyEmployerFunc();
-        }
+      
 
         // TESTING...Report #seconds since start and achieved fps.
         var sinceStart = now - startTime;
@@ -57,13 +51,23 @@ function animate() {
     }
 }
 
-
 /* 
 ============================================================================================================================================================================================================================
 THE CODE ABOVE ONLY EXISTS TO LIMIT THE FPS AT WHICH THE THINGS DRAWN IN THE SPECIFIED SECTION WILL RUN. IT SHOULD NOT BE USED FOR LITERALLY ANYTHING ELSE. I WILL ONLY PUT THINGS IN THERE THAT ABSOLUTELY NEED TO BE THERE
 ============================================================================================================================================================================================================================
 */
 
+export { multiplier /*or gamedata whichever works*/};
+
+if (typeof(w) == "undefined") {
+    w = new Worker("webworkers.js");
+}
+
+w.onmessage = function(event) {
+    document.getElementById("result").innerHTML = event.data;
+}
+
+var numberThing = 0;
 
 var gameData = {
 
@@ -181,6 +185,7 @@ if (saveGame !== null) {
 function wipeSave() {
     localStorage.removeItem("moneySave");
     gameData.lines -= gameData.lines;
+    gameData.lines += 30;
     gameData.upgradeCost -= gameData.upgradeCost
     gameData.upgradeCost += 10;
     gameData.upgradeCost2 -= gameData.upgradeCost2;
@@ -189,5 +194,32 @@ function wipeSave() {
     gameData.monkeyWriterCost += 15;
     gameData.autoClickers -= gameData.autoClickers;
     gameData.mps -= gameData.mps;
+    gameData.trainees -= gameData.trainees;
+    gameData.trainees += 30;
+    gameData.mps += 0.1;
     //gameData.mps += 1;
+}
+
+/*
+==============================================
+IF YOU WANNA EDIT THE TABS CODE ITS BELOW THIS
+==============================================
+*/
+
+function openTab(evt, tabName) {
+    var i, tabContent, tabLinks;
+
+
+tabContent = document.getElementsByClassName("tabContent");
+for (i = 0; i < tabContent.length; i++) {
+    tabContent[i].style.display = "none";
+}
+
+tabLinks = document.getElementsByClassName("tabLinks");
+for (i = 0; i < tabLinks.length; i++) {
+    tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+}
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
