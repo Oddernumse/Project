@@ -1,6 +1,8 @@
 //started working on this december 21st 2020
 //today: february 5nd 2021
 
+import {multiplier, gameData} from "./module.js";
+
 var stop = false;
 var frameCount = 0;
 //var $results = $("#results");
@@ -41,7 +43,7 @@ function animate() {
         then = now - (elapsed % fpsInterval);
 
         // draw stuff here
-      
+
 
         // TESTING...Report #seconds since start and achieved fps.
         var sinceStart = now - startTime;
@@ -57,50 +59,19 @@ THE CODE ABOVE ONLY EXISTS TO LIMIT THE FPS AT WHICH THE THINGS DRAWN IN THE SPE
 ============================================================================================================================================================================================================================
 */
 
-export { multiplier /*or gamedata whichever works*/};
 
-if (typeof(w) == "undefined") {
-    w = new Worker("webworkers.js");
+//export { multiplier /*or gamedata whichever works*/};
+
+let w;
+if (typeof (w) == "undefined") {
+    w = new Worker("webworkers.js", { type: "module" });
 }
 
-w.onmessage = function(event) {
+w.onmessage = function (event) {
     document.getElementById("result").innerHTML = event.data;
 }
 
 var numberThing = 0;
-
-var gameData = {
-
-    lines: 0,
-
-    moneyPerClick: 1,
-
-    upgradeCost: 10,
-
-    upgradeCost2: 100,
-
-    monkeyTraineeCost: 2,
-
-    monkeyEmployerCost: 100,
-
-    mps: 0.1,
-
-    monkeyWriter: 0,
-
-    monkeyTraineeValue: 0.1,
-
-    monkeyEmployer: 0,
-
-    trainees: 30,
-
-    monkeyWriterCost: 20,
-
-    monkeyWriterValue: 0.1,
-
-    monkeyTrainerCost: 10,
-
-    traineeIncrease: 0.07,
-}
 
 /*var test ={
     monkeyWriterValue: 0.1
@@ -116,8 +87,8 @@ function closeNav() {
 
 //Use this function on any number with rogue decimals
 function prettify(input) {
-    var output = Math.round(input * 1000000)/1000000;
-	return output;
+    var output = Math.round(input * 1000000) / 1000000;
+    return output;
 }
 
 //This updates some values every 50 milliseconds
@@ -130,6 +101,7 @@ function updater() {
     //document.getElementById("output3").innerHTML = gameData.trainees + " Trainees" + " Trainee Increase: " + gameData.traineeIncrease;
 }
 setInterval(updater, 50);
+window.onload = updater;
 
 //This increases the value my for loop (the loop runs once every second) uses by a value which i want to be incremented by upgrades implemented later. Right now it just happens to be 0.1
 function monkeyTraineeFunc() {
@@ -168,10 +140,9 @@ function monkeyEmployerFunc2() {
     }
 }
 
-let multiplier = 10;
-let i = 0
+let i = 0;
 
-var saveGameLoop = window.setInterval(function() {
+var saveGameLoop = window.setInterval(function () {
     localStorage.setItem("moneySave", JSON.stringify(gameData))
     console.log("saved");
 }, 15000)
@@ -210,15 +181,15 @@ function openTab(evt, tabName) {
     var i, tabContent, tabLinks;
 
 
-tabContent = document.getElementsByClassName("tabContent");
-for (i = 0; i < tabContent.length; i++) {
-    tabContent[i].style.display = "none";
-}
+    tabContent = document.getElementsByClassName("tabContent");
+    for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+    }
 
-tabLinks = document.getElementsByClassName("tabLinks");
-for (i = 0; i < tabLinks.length; i++) {
-    tabLinks[i].className = tabLinks[i].className.replace(" active", "");
-}
+    tabLinks = document.getElementsByClassName("tabLinks");
+    for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+    }
 
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
