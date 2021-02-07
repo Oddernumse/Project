@@ -1,7 +1,7 @@
-import gameData from "./main.js"
+import {multiplier, gameData} from "./module.js"
 
 function tester() {
-    for (i=0; i < 100; i++) {
+    for (let i=0; i < 100; i++) {
         var fixedNum = gameData.trainees.toFixed(2);
         var fixedLines = gameData.lines.toFixed(2);
         var test = gameData.lines += gameData.mps / multiplier / 30;
@@ -11,7 +11,7 @@ function tester() {
         /*document.getElementById("output3").innerHTML = fixedNum + " trainees";
         document.getElementById("output4").innerHTML = fixedLines + " Lines";
         //monkeyEmployerFunc();*/
-        setTimeout("tester()",500);
+        setTimeout(tester,500);
     }
 }
 

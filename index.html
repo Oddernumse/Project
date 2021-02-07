@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monkey Business</title>
-</head>
-<body onload="updater()" id="moneky">
-
-<div class="tab">
-    <button class="tabLinks" onclick="openTab(event, 'placeholder1')">Monkeys</button>
-    <button class="tabLinks" onclick="openTab(event, 'placeholder2')">Lines</button>
-    <button class="tabLinks" onclick="openTab(event, 'placeholder3')">placeholder3</button>
-</div>
-
-<div id="placeholder1" class="tabContent">
-    <h3>Monkeys</h3>
-    <button id="output5" class="button" onclick="monkeyTrainerFunc()">Monkey Trainer: </button>
-    <p id="result">0 trainees</p>
-</div>
-
-<div id="placeholder2" class="tabContent">
-    <h3>Lines</h3>
-    <p id="output4">0 Lines</p>
-</div>
-
-<div id="placeholder3" class="tabContent">
-    <h3>something</h3>
-    <p>yes</p>
-</div>
-
-    <!-- <button class="button" onclick="monkeyWriterFunc()">Buy Monkey</button> -->
-    <div id="output1" class="font-color font-style center">Upgrade Cost: </div>
-    <div id="output2" class="font-color font-style center">Monkey Writer: </div>
-    <div id="autoClick" class="font-color font-style center">LpS: 0</div>
-    <br/>
-    <button type="button" onclick="wipeSave()">Wipe Save</button>
-    <script src="main.js"></script>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Monkey Business</title>
+        <script type="module" src="module.js"></script>
+        <script type="module" src="main.js"></script>
+    
+    </head>
+    <body id="moneky">
+    
+        <div class="tab">
+            <button class="tabLinks" onclick="openTab(event, 'placeholder1')">Monkeys</button>
+            <button class="tabLinks" onclick="openTab(event, 'placeholder2')">Lines</button>
+            <button class="tabLinks" onclick="openTab(event, 'placeholder3')">placeholder3</button>
+        </div>
+        
+        <div id="placeholder1" class="tabContent">
+            <h3>Monkeys</h3>
+            <button id="output5" class="button" onclick="monkeyTrainerFunc()">Monkey Trainer:</button>
+            <p id="result">0 trainees</p>
+        </div>
+        
+        <div id="placeholder2" class="tabContent">
+            <h3>Lines</h3>
+            <p id="output4">0 Lines</p>
+        </div>
+        
+        <div id="placeholder3" class="tabContent">
+            <h3>something</h3>
+            <p>yes</p>
+        </div>
+        
+        <!-- <button class="button" onclick="monkeyWriterFunc()">Buy Monkey</button> -->
+        <div id="output1" class="font-color font-style center">Upgrade Cost:</div>
+        <div id="output2" class="font-color font-style center">Monkey Writer:</div>
+        <div id="autoClick" class="font-color font-style center">LpS: 0</div>
+        <br/>
+        <button type="button" onclick="wipeSave()">Wipe Save</button>
+    
     <!-- <script type="module" dist="webworkers.js"></script> -->
-</body>
+    </body>
 </html>
