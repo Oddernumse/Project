@@ -5,8 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Monkey Business</title>
-        <script type="module" src="module.js"></script>
+        <script type="module" src="module.mjs"></script>
         <script type="module" src="main.js"></script>
+        <script type="text/javascript" src="misc.js"></script>
     
     </head>
     <body id="moneky">
@@ -20,7 +21,7 @@
         <div id="placeholder1" class="tabContent">
             <h3>Monkeys</h3>
             <button id="output5" class="button" onclick="monkeyTrainerFunc()">Monkey Trainer:</button>
-            <p id="result">0 trainees</p>
+            <p id="output3">0 trainees</p>
         </div>
         
         <div id="placeholder2" class="tabContent">
@@ -33,13 +34,14 @@
             <p>yes</p>
         </div>
         
-        <!-- <button class="button" onclick="monkeyWriterFunc()">Buy Monkey</button> -->
-        <div id="output1" class="font-color font-style center">Upgrade Cost:</div>
+        <button class="button" onclick="poo()">Buy Monkey</button>
+        <div id="result" class="font-color font-style center">Upgrade Cost:</div>
         <div id="output2" class="font-color font-style center">Monkey Writer:</div>
         <div id="autoClick" class="font-color font-style center">LpS: 0</div>
+        <div id="emergency"></div>
         <br/>
         <button type="button" onclick="wipeSave()">Wipe Save</button>
     
-    <!-- <script type="module" dist="webworkers.js"></script> -->
+    <script type="module" dist="webworkers.js"></script>
     </body>
 </html>
