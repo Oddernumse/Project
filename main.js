@@ -1,7 +1,7 @@
 //started working on this december 21st 2020
 //today: february 8th 2021
 
-const { gameData } = require('./module.mjs');
+import { gameData } from "./module.mjs";
 
 //Use this function on any number with rogue decimals
 function prettify(input) {
