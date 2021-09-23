@@ -14,7 +14,7 @@ export let gameData = {
 
     monkeyEmployerCost: 100,
 
-    mps: 0.1,
+    lps: 0.1,
 
     monkeyWriter: 0,
 

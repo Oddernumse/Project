@@ -1,0 +1,58 @@
+.click {
+    text-align: center;
+    font-size: 20px;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button1 {
+    text-align: center;
+    background:url(https://cdn.discordapp.com/attachments/354248290109489166/798905880044634162/rsz_61200px-left_side_of_modern_us-international_keyboard4.png);
+    background-position: 50% 25%;
+    height: 86px;
+    width: 482px;
+}
+
+.changeSize {
+    height: 206px;
+    width: 206px;
+}
+
+#theButton {
+    background: url(https://cdn.discordapp.com/attachments/354248290109489166/797816992387039232/aButton.png);
+    background-position: 50% 25%;
+    text-align: center;
+    width: 256px;
+    height: 256px;
+    background: url(img/empty.png);
+    border-radius: 128px;
+}
+
+.center {
+    text-align: center;
+}
+
+.moneky {
+    background-image: url(https://cdn.discordapp.com/attachments/467282217455058944/797805469606477824/Chimpanzee_seated_at_typewriter.png);
+}
+
+.font-color {
+    color: rgb(247, 0, 53);
+}
+
+.font-style {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.unit {
+    float: right;
+}
