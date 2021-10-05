@@ -1,12 +1,8 @@
 import { gameData, multiplier } from "./module.mjs"
 
-//Use this function on any number with rogue decimals
-function prettify(input) {
-    var output = Math.round(input * 1000000) / 1000000;
-    return output;
-}
 
 function tester() {
+    postMessage(gameData.monkeyEmployerCost);
     for (let i=0; i < 10; i++) {
         setInterval(function(){
         let test = gameData.lines += gameData.lps / multiplier / 100;

@@ -41,8 +41,9 @@
     text-align: center;
 }
 
-.moneky {
-    background-image: url(https://cdn.discordapp.com/attachments/467282217455058944/797805469606477824/Chimpanzee_seated_at_typewriter.png);
+.background {
+  background-color: no;
+    /*background-image: url();*/
 }
 
 .font-color {

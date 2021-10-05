@@ -3,12 +3,18 @@
 
 import { gameData } from "./module.mjs"
 
+let w;
+if (typeof (w) == "undefined") {
+    w = new Worker("webworkers.js", { type: "module" });
+}
+
 //Use this function on any number with rogue decimals
 function prettify(input) {
     var output = Math.round(input * 1000000) / 1000000;
     return output;
 }
 
+//Add anything that needs to be done onclick in here
 function setup() {
     document.getElementById("trainerBuy").onclick = () => monkeyTrainerFunc();
 }
@@ -84,4 +90,8 @@ function wipeSave() {
     gameData.trainees += 30;
     gameData.lps += 0.1;
     //gameData.lps += 1;
+}
+
+w.onmessage = function (event) {
+    document.getElementById("lines").innerHTML = event.data;
 }
